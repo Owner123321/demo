@@ -218,14 +218,16 @@ SnakeInit.prototype.addBody = function (x,y) {
     this.score++;
 }
 SnakeInit.prototype.appleShow = function () {
-    var apple = document.getElementsByClassName('apple');
-    var n = Math.floor(Math.random()*2 + 1);   // 确定是随机生成1个或者2个果实
-    if(apple.length >= 1){                          //保证同时只能存在两个果实
-        this.generate(1);
-    }else{
-        this.generate(n);            
-    }
-    
+var apple = document.getElementsByClassName('apple');
+// 确定是随机生成1~4个果实
+var n = Math.floor(Math.random()*4 + 1);  
+//保证同时只能存在两个果实
+//if(apple.length == 1){//若场上已经存在果实则最多只能生成一个果实，否则同时存在两个以上                          
+//   this.generate(1);
+//}else{
+//    this.generate(n);            
+//}
+this.generate(n); 
 }
 SnakeInit.prototype.generate = function (n) {
     for(var i = 0; i < n; i++){
